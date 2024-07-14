@@ -8,7 +8,7 @@ public class PGify_Registration_DAO {
 	private String fullName;
 	private String userName;
 	private String Gmail;
-	private String phoneNumber;
+	private int phoneNumber;
 	private String password;
 	private String conpassword;
 	private String gender;
@@ -39,11 +39,11 @@ public class PGify_Registration_DAO {
 		Gmail = gmail;
 	}
 
-	public String getPhoneNumber() {
+	public int getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	public void setPhoneNumber(String phoneNumber) {
+	public void setPhoneNumber(int phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 
@@ -77,7 +77,7 @@ public class PGify_Registration_DAO {
 		
 	}
 	
-	public void registerUser(String fullName, String userName, String Gmail, String phoneNumber,String upassword,String gender) {
+	public void registerUser(String fullName, String userName, String Gmail, long phoneNumber,String upassword,String gender) {
 		
         String url = "jdbc:mysql://localhost:3306/pgify";
   	    String user = "root";
@@ -92,25 +92,26 @@ public class PGify_Registration_DAO {
   	  try {
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection con = DriverManager.getConnection(url,user,password);
-		String query = " insert into user_registration (full_name , user_name , gmail , phone_number , password , gender ) values (?,?,?,?,?,?);";
+		String query = " insert into user_registration (full_name , user_name , email , phone_number , password , gender ) values (?,?,?,?,?,?);";
   	    
 	  	  PreparedStatement pst = con.prepareStatement(query);
 	  	  
 	  	  pst.setString(1, fullName);
 	  	  pst.setString(2, userName);
 	  	  pst.setString(3, Gmail);
-	  	  pst.setString(4, phoneNumber);
+	  	  pst.setLong(4, phoneNumber);
 	  	  pst.setString(5, upassword);
 	  	  pst.setString(6, gender);
 	  	  
 	  	 pst.executeUpdate();
 	  	
-	  	 query = "insert into user_login( user_name , password ) values (?,?);";
+	  	 query = "insert into user_login(email, user_name , password ) values (?,?,?);";
 	  		
 	  		pst = con.prepareStatement(query);
 	  		 
-	  		pst.setString(1, userName);
-	  		pst.setString(2, upassword);
+	  		pst.setString(1, Gmail);
+	  		pst.setString(2, userName);
+	  		pst.setString(3, upassword);
 	  		pst.executeUpdate();
 	    	
 	   

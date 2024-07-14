@@ -28,7 +28,7 @@
         <span id="re_pswd_error" class="re_pswd_er re_pswd_hide">***Password is not Match...</span>
          </div>
         </div>
-        <button class="pswd-button">Change Password</button>
+        <button class="pswd-button" type="submit">Change Password</button>
     </form>
     </div>
   <div class="div-img">

@@ -26,7 +26,7 @@ public class PGify_Registration extends HttpServlet {
 		String full_name = request.getParameter("fullname");
 		String user_name = request.getParameter("username");
 		String gmail = request.getParameter("email");
-		String phone_number = request.getParameter("phonenumber");
+	  long  phone_number = Long.parseLong(request.getParameter("phonenumber")) ;
 		String password = request.getParameter("password");
 		String gender = request.getParameter("gender");
 		

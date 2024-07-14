@@ -57,15 +57,6 @@
     <url-pattern>/forgot_pswd</url-pattern>
   </servlet-mapping>
   <filter>
-    <display-name>Forgot_pswd_Filter</display-name>
-    <filter-name>Forgot_pswd_Filter</filter-name>
-    <filter-class>Forgot_pswd_Filter</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>Forgot_pswd_Filter</filter-name>
-    <url-pattern>/forgot_pswd</url-pattern>
-  </filter-mapping>
-  <filter>
     <display-name>New_pswd_Filter</display-name>
     <filter-name>New_pswd_Filter</filter-name>
     <filter-class>New_pswd_Filter</filter-class>

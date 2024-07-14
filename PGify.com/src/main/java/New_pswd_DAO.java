@@ -44,7 +44,7 @@ public class New_pswd_DAO {
 	}
 	
 	public  void updatePswd(String gmail,String new_pswd) throws ClassNotFoundException, SQLException {
-		 String url = "jdbc:mysql://localhost:3306/db_2";
+		    String url = "jdbc:mysql://localhost:3306/PGify";
 	  	    String user = "root";
 	  	    String password = "mayank@db";
 	  	    
@@ -54,14 +54,14 @@ public class New_pswd_DAO {
 	  	 // 2. Create Connection
 	  	     Connection con = DriverManager.getConnection(url,user,password);
 	  	     
-	  	   String query = " UPDATE user_registration SET password = ? WHERE gmail = ?; ";
+	  	   String query = " UPDATE user_registration SET password = ? WHERE email = ?; ";
 	  		 PreparedStatement pst = con.prepareStatement(query);
 	  		  
 	  		 pst.setString(1, new_pswd);
 	  		 pst.setString(2, gmail);
 	  		pst.executeUpdate();
 	  		
-            String   query1 = " UPDATE user_login SET password = ? WHERE gmail = ?; ";
+            String   query1 = " UPDATE user_login SET password = ? WHERE email = ?; ";
 	  		
 	  		pst = con.prepareStatement(query1);
 	  		 

@@ -35,7 +35,7 @@ public class PGify_Register_Filter extends HttpFilter implements Filter {
 		String full_name = request.getParameter("fullname");
 		String user_name = request.getParameter("username");
 		String email = request.getParameter("email");
-		String phone_number = request.getParameter("phonenumber");
+		String phone_number = request.getParameter("phonenumber") ;
 		String password = request.getParameter("password");
 		String confirm_password = request.getParameter("conpassword");
 		String gender = request.getParameter("gender");
