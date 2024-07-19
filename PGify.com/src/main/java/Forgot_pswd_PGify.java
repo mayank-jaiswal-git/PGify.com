@@ -1,6 +1,5 @@
 
 
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -31,9 +30,10 @@ public class Forgot_pswd_PGify extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("user_gmail",gmail);
 				
-				RequestDispatcher rd;
-				rd = request.getRequestDispatcher("New_pswd_PGify.jsp");
-				rd.forward(request, response); 
+//				RequestDispatcher rd;
+//				rd = request.getRequestDispatcher("New_pswd_PGify.jsp");
+//				rd.forward(request, response); 
+				response.sendRedirect("New_pswd_PGify.jsp");
 				
 			}
 		} catch (ClassNotFoundException | SQLException e) {

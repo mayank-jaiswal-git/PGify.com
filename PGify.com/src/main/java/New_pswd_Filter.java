@@ -40,12 +40,12 @@ public class New_pswd_Filter extends HttpFilter implements Filter {
 		String password = request.getParameter("new_pswd");
 		String re_password = request.getParameter("re_pswd");
 		
-		if(password != "null" && password == re_password) {
+		
+		if(password != "null" && re_password.equals(password)) {
 			if(Pattern.matches(password_regex, password)) {
 				chain.doFilter(request, response);
 			}
 		}
-		
 		
 	}
 

@@ -15,7 +15,7 @@
             <img src="PGify_Images/Copy of PGify.com_20240504_212204_0000_page-0001.jpg" alt="">
         </div>
         <div class="content">
-            <form action="user_register" onsubmit="return isValidate()" method="Get">
+            <form action="user_register" onsubmit="return isValidate()" method="post">
                 <div class="User-Details">
                     <div class="input-Box">
                         <span class="details">Full Name</span>

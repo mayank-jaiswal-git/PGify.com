@@ -21,7 +21,7 @@
         <input id="Gmail_input" class="gmail"type="email" name="gmail" placeholder="Enter the Gmail Here..." required>
          <img class="contact_img" src="PGify_Images/phone.png" alt="">
         <input id="Phno_input" class="phno" type="number" name="phone_number" placeholder="Enter the Contact Number..."  required>
-        <button class="Verify-button">Reset Password</button>
+        <button class="Verify-button">Verify Details</button>
     </form>
     </div>
   <div class="div-img">

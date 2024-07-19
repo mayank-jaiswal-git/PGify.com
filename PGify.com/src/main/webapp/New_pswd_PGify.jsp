@@ -15,7 +15,7 @@
           <!-- <img src="../IMAGES/Copy of PGify.com_20240504_212204_0000_page-0001.jpg" alt=""> -->
            <span>Enter the Password</span>
        </div>
-    <form class="input" action="New_pswd" onsubmit="return isValidate()">
+    <form class="input" action="New_pswd" onsubmit="return isValidate()" method ="post">
        <div class="content">
         <img class="pswd_img" src="PGify_Images/lock (1).png" alt="">
         <div class="input_box">
@@ -28,7 +28,7 @@
         <span id="re_pswd_error" class="re_pswd_er re_pswd_hide">***Password is not Match...</span>
          </div>
         </div>
-        <button class="pswd-button" type="submit">Change Password</button>
+        <button class="pswd-button" type="submit">Reset Password</button>
     </form>
     </div>
   <div class="div-img">

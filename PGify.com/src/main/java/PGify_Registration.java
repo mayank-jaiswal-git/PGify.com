@@ -23,21 +23,7 @@ public class PGify_Registration extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String full_name = request.getParameter("fullname");
-		String user_name = request.getParameter("username");
-		String gmail = request.getParameter("email");
-	  long  phone_number = Long.parseLong(request.getParameter("phonenumber")) ;
-		String password = request.getParameter("password");
-		String gender = request.getParameter("gender");
-		
-		
-		
-		PGify_Registration_DAO dao = new PGify_Registration_DAO();
-		
-		dao.registerUser(full_name, user_name, gmail, phone_number, password, gender);
-		
-		
-		 response.sendRedirect("PGify_Login.jsp");
+		doPost(request, response);
 		
 //		PrintWriter out = response.getWriter();
 //		response.setContentType("text/html");
@@ -54,7 +40,22 @@ public class PGify_Registration extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		String full_name = request.getParameter("fullname");
+		String user_name = request.getParameter("username");
+		String gmail = request.getParameter("email");
+	    long  phone_number = Long.parseLong(request.getParameter("phonenumber")) ;
+		String password = request.getParameter("password");
+		String gender = request.getParameter("gender");
+		
+		
+		
+		PGify_Registration_DAO dao = new PGify_Registration_DAO();
+		
+		dao.registerUser(full_name, user_name, gmail, phone_number, password, gender);
+		
+		
+		 response.sendRedirect("PGify_Login.jsp");
 	}
 
 }

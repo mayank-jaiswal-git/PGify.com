@@ -25,12 +25,7 @@ public class PGify_Login extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String user_name = request.getParameter("uname");
-		HttpSession session = request.getSession();
-		session.setAttribute("user_name",user_name);
-		
-		
-		response.sendRedirect("PGify.jsp");
+		doPost(request, response);
 	}
 
 	/**
@@ -38,7 +33,13 @@ public class PGify_Login extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		String user_name = request.getParameter("uname");
+		HttpSession session = request.getSession();
+		session.setAttribute("user_name",user_name);
+		
+		
+		response.sendRedirect("PGify.jsp");
 	}
 
 }

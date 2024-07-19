@@ -270,7 +270,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+
    <div class="page-3">
 	<div class="contain">
 		<h1>Why choose PGify ?</h1>
