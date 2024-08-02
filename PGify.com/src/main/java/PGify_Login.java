@@ -8,38 +8,62 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 @WebServlet("/user_login")
 public class PGify_Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+    
     public PGify_Login() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String user_name = request.getParameter("uname");
-		HttpSession session = request.getSession();
-		session.setAttribute("user_name",user_name);
+		String name = request.getParameter("uname");
+		String pswd = request.getParameter("upassword");
 		
-		
-		response.sendRedirect("PGify.jsp");
+		PGify_Login_DAO dao = new PGify_Login_DAO();
+		try {
+			if(dao.user_Login(name,pswd)) {
+				String user_name = request.getParameter("uname");
+				HttpSession session = request.getSession();
+				session.setAttribute("user_name",user_name);
+				
+				
+				response.sendRedirect("PGify.jsp");
+			}
+			else {
+				/*
+				 * PrintWriter out = response.getWriter(); response.setContentType("text/html");
+				 * out.println("<h1>"+"LOGIN FAILED PLEASE LOGIN AGAIN...."+"</h1>");
+				 */
+				 String msg ="Invalid User Name or Password...";
+                 HttpSession session = request.getSession();
+                 session.setAttribute("error",msg);
+                 response.sendRedirect("PGify_Login.jsp");
+			}
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
 	}
 
 }

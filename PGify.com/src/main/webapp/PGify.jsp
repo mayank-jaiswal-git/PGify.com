@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>PGify.com</title>
-<link rel="stylesheet" href="PGify_css/Pgify.css">
+<link rel="stylesheet" href="PGify_css/Pgify_Home.css">
 
 </head>
 <body>
@@ -46,15 +48,39 @@
 			
 		  </ul>
 		</div>
-
-		<div id="login">
-			<a href="PGify_Login.jsp">Login</a>
-			<h1>|</h1>
-			<a href="PGify_Registration.jsp">Register</a> 
-			<div class="profile">
-				<img src="PGify_Images/user.png" alt="">
-			</div>
-		</div>
+		
+		
+   
+      <% 
+           if(session.getAttribute("user_name") == null)
+           {
+      %> 
+            <div id="login">
+     			<a href="PGify_Login.jsp">Login</a>
+     			<h1 id="line" class="line">|</h1>
+     			<a href="PGify_Registration.jsp" class="register" id="register">Register</a> 
+     			<div id="profile_div" class="profile_login">
+     				<img id="profile_img" class="profile_img_login" src="PGify_Images/user.png" alt="">
+     		    </div> 
+     		</div>
+     			
+    	  <%
+             }
+             else
+             {
+           %>
+            <div id="log_out" class="log_out1">
+               <a href="" class="logout" id="logout">Log Out</a>
+                  <h1 id="line" class="line">|</h1>
+              <div id="profile_div" class="profile_logout">
+				<span class="user_profile">${user_name}</span>
+		      </div> 
+           </div>
+            
+    	  <%
+             }
+    	  %>
+      
 	</div>
 </nav>
 <div class="body-1">
